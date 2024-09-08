@@ -4,9 +4,12 @@ import com.spartanny.entities.Board;
 import com.spartanny.handler.HealthHandler;
 import com.spartanny.handler.MoveHandler;
 import com.spartanny.strategy.interfaces.IPlayModeStrategy;
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import lombok.SneakyThrows;
 
+import java.io.IOException;
 import java.net.InetSocketAddress;
 
 public class OnlinePlayMode implements IPlayModeStrategy {
@@ -32,5 +35,6 @@ public class OnlinePlayMode implements IPlayModeStrategy {
     private void initialiseContext(HttpServer httpServer) {
         httpServer.createContext("/health", new HealthHandler());
         httpServer.createContext(BASE_PATH + "/move", new MoveHandler(board));
+        httpServer.createContext("/start-new", exchange -> board.resetBoard());
     }
 }

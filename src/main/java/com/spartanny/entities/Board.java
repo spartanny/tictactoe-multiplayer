@@ -119,4 +119,8 @@ public class Board {
         return board[i][j];
     }
 
+    public void resetBoard() {
+        board = new String[3][3];
+    }
+
 }
