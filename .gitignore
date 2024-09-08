@@ -1,2 +1,4 @@
-target
+target/*
 .idea
+
+!target/tic-tac-toe-1.0-SNAPSHOT.jar
