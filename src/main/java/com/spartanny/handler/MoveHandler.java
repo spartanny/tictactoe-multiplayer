@@ -37,6 +37,7 @@ public class MoveHandler implements HttpHandler {
                 if(board.getWinnerDetails() != null) {
                     res.append("\n").append(board.getWinnerDetails().getName() + " WON !");
                 }
+                MoveHandler.count ++;
 
             } catch (ValidMoveException e) {
                 res = new StringBuilder(e.getMessage());
@@ -48,6 +49,5 @@ public class MoveHandler implements HttpHandler {
             os.close();
         }
 
-        MoveHandler.count ++;
     }
 }

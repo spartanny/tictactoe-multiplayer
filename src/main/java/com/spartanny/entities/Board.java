@@ -14,6 +14,7 @@ public class Board {
     public Board(Player p1, Player p2) {
         board = new String[3][3];
         players = new Player[] {p1, p2};
+        winner = null;
     }
 
     /**
@@ -121,6 +122,7 @@ public class Board {
 
     public void resetBoard() {
         board = new String[3][3];
+        winner = null;
     }
 
 }
